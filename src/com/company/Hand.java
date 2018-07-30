@@ -49,27 +49,8 @@ public class Hand {
             PlayingCard c = hand.get(0);  // Minimal card.
             for (int i = 1; i < hand.size(); i++) {
                 PlayingCard c1 = hand.get(i);
-                if ( c1.getSuit() < c.getSuit() ||
-                        (c1.getSuit() == c.getSuit() && c1.getValue() < c.getValue()) ) {
-                    pos = i;
-                    c = c1;
-                }
-            }
-            hand.remove(pos);
-            newHand.add(c);
-        }
-        hand = newHand;
-    }
-    
-    public void sortByValue() {
-        ArrayList<PlayingCard> newHand = new ArrayList<PlayingCard>();
-        while (hand.size() > 0) {
-            int pos = 0;  // Position of minimal card.
-            PlayingCard c = hand.get(0);  // Minimal card.
-            for (int i = 1; i < hand.size(); i++) {
-                PlayingCard c1 = hand.get(i);
-                if ( c1.getValue() < c.getValue() ||
-                        (c1.getValue() == c.getValue() && c1.getSuit() < c.getSuit()) ) {
+                if (c1.getSuit() < c.getSuit() ||
+                        (c1.getSuit() == c.getSuit() && c1.getValue() < c.getValue())) {
                     pos = i;
                     c = c1;
                 }
@@ -80,4 +61,22 @@ public class Hand {
         hand = newHand;
     }
 
+    public void sortByValue() {
+        ArrayList<PlayingCard> newHand = new ArrayList<PlayingCard>();
+        while (hand.size() > 0) {
+            int pos = 0;  // Position of minimal card.
+            PlayingCard c = hand.get(0);  // Minimal card.
+            for (int i = 1; i < hand.size(); i++) {
+                PlayingCard c1 = hand.get(i);
+                if (c1.getValue() < c.getValue() ||
+                        (c1.getValue() == c.getValue() && c1.getSuit() < c.getSuit())) {
+                    pos = i;
+                    c = c1;
+                }
+            }
+            hand.remove(pos);
+            newHand.add(c);
+        }
+        hand = newHand;
+    }
 }
