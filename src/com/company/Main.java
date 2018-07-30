@@ -102,7 +102,7 @@ public class Main {
             //Nytt projekt ------------------------------------------------------------
 
 
-            System.out.print("Final moment! Lets try to guess the value! ((H)earts, (D)iamonds, (C)lubs or (S)pades)");
+            System.out.print("Final moment! Lets try to guess the value! (H)earts, (D)iamonds, (C)lubs or (S)pades?");
 
             while (true) {
                 do {
