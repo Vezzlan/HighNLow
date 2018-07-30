@@ -43,11 +43,11 @@ public class Main {
         do {
             System.out.println("Guess the color of the card - (R)ed or (B)lack?");
             guessing = keyboard.next().trim();
-            if (s.equals(guessing))
+            if(guessing.toUpperCase().equals(s.toUpperCase()))
                 System.out.println("Correct!");
             else
                 System.out.println("Wrong! Try again!");
-        } while (!s.equals(guessing));
+        } while (!guessing.toUpperCase().equals(s.toUpperCase()));
 
         PlayingCardDeck deck = new PlayingCardDeck();
         PlayingCard currentCard;
