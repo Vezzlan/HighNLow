@@ -43,7 +43,7 @@ public class Main {
         do {
             System.out.println("Guess the color of the card - (R)ed or (B)lack?");
             guessing = keyboard.next().trim();
-            if(guessing.toUpperCase().equals(s.toUpperCase()))
+            if (guessing.toUpperCase().equals(s.toUpperCase()))
                 System.out.println("Correct!");
             else
                 System.out.println("Wrong! Try again!");
@@ -101,71 +101,36 @@ public class Main {
 
             //Nytt projekt ------------------------------------------------------------
 
-
             System.out.print("Final moment! Lets try to guess the value! (H)earts, (D)iamonds, (C)lubs or (S)pades?");
 
             while (true) {
                 do {
                     guess = TextIO.getlnChar();
                     guess = Character.toUpperCase(guess);
-                    if (guess != 'H' && guess != 'D' && guess != 'C' && guess !='S' )
+                    if (guess != 'H' && guess != 'D' && guess != 'C' && guess != 'S')
                         System.out.print("Please respond with H, D, C or S:  ");
                 } while (guess != 'H' && guess != 'D' && guess != 'C' && guess != 'S');
 
+                System.out.println("hej");
+                Scanner key = new Scanner(System.in);
+                String keyen = key.next().trim();
 
-                /* Check the user's prediction. */
+                String chars = "hdcs";
+                Random rnd = new Random();
+                char ca = chars.charAt(rnd.nextInt(chars.length()));
 
-                if (guess == 'D') {
-                    System.out.println("The value is the same as the previous card.");
-                    System.out.println("You lose on ties.  Sorry!");
-                    break;  // End the game.
-                    /*
-                } else if (nextCard.getValue() > currentCard.getValue()) {
-                    if (guess == 'H') {
-                        System.out.println("Your prediction was correct.");
-                        correctGuesses++;
-                    } else {
-                        System.out.println("Your prediction was incorrect.");
-                        break;  // End the game.
-                    }
-                } else {  // nextCard is lower
-                    if (guess == 'L') {
-                        System.out.println("Your prediction was correct.");
-                        correctGuesses++;
-                    } else {
-                        System.out.println("Your prediction was incorrect.");
-                        break;  // End the game.
-                    }
-                    */
-                }
+                StringBuilder b = new StringBuilder();
+                b.append(ca);
+                String str3 = b.toString();
 
+
+                if (str3.toUpperCase().equals(keyen.toUpperCase()))
+                    System.out.println("You won!");
+                else
+                    System.out.println("Wrong! Try again!");
+                while (!str3.toUpperCase().equals(keyen.toUpperCase())) ;
             }
-
-
-//Slut nytt projekt
-
-
-
-         /* To set up for the next iteration of the loop, the nextCard
-            becomes the currentCard, since the currentCard has to be
-            the card that the user sees, and the nextCard will be
-            set to the next card in the deck after the user makes
-            his prediction.  */
-
-                currentCard = nextCard;
-                System.out.println();
-                System.out.println("The card is " + currentCard);
-
-            } // end of while loop
-
-            System.out.println();
-            System.out.println("The game is over.");
-            System.out.println("You made " + correctGuesses
-                    + " correct predictions.");
-            System.out.println();
-
-            return correctGuesses;
-
-        }  // end play()
-
-}// end class HighLow
+        }
+        return answear;
+    }
+}
