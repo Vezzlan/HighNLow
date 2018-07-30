@@ -10,7 +10,7 @@ package com.company;
  * this value can be anything and can be used to keep track of several
  * different jokers.
  */
-public class Card {
+public class PlayingCard {
 
     public final static int SPADES = 0;   // Codes for the 4 suits, plus Joker.
     public final static int HEARTS = 1;
@@ -38,14 +38,6 @@ public class Card {
      */
     private final int value;
 
-    /**
-     * Creates a Joker, with 1 as the associated value.  (Note that
-     * "new Card()" is equivalent to "new Card(1,Card.JOKER)".)
-     */
-    public Card() {
-        suit = JOKER;
-        value = 1;
-    }
 
     /**
      * Creates a card with a specified suit and value.
@@ -58,7 +50,7 @@ public class Card {
      * @throws IllegalArgumentException if the parameter values are not in the
      * permissible ranges
      */
-    public Card(int theValue, int theSuit) {
+    public PlayingCard(int theValue, int theSuit) {
         if (theSuit != SPADES && theSuit != HEARTS && theSuit != DIAMONDS &&
                 theSuit != CLUBS && theSuit != JOKER)
             throw new IllegalArgumentException("Illegal playing card suit");

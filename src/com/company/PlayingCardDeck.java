@@ -5,13 +5,13 @@ package com.company;
  *  is a regular poker deck that contains 52 regular cards and that can
  *  also optionally include two Jokers.
  */
-public class Deck {
+public class PlayingCardDeck {
 
     /**
      * An array of 52 or 54 cards.  A 54-card deck contains two Jokers,
      * in addition to the 52 cards of a regular poker deck.
      */
-    private Card[] deck;
+    private PlayingCard[] deck;
 
     /**
      * Keeps track of the number of cards that have been dealt from
@@ -25,7 +25,7 @@ public class Deck {
      * randomize the order.  (Note that "new Deck()" is equivalent
      * to "new Deck(false)".)
      */
-    public Deck() {
+    public PlayingCardDeck() {
         this(false);  // Just call the other constructor in this class.
     }
 
@@ -38,21 +38,21 @@ public class Deck {
      * @param includeJokers if true, two Jokers are included in the deck; if false,
      * there are no Jokers in the deck.
      */
-    public Deck(boolean includeJokers) {
+    public PlayingCardDeck(boolean includeJokers) {
         if (includeJokers)
-            deck = new Card[54];
+            deck = new PlayingCard[54];
         else
-            deck = new Card[52];
+            deck = new PlayingCard[52];
         int cardCt = 0; // How many cards have been created so far.
         for ( int suit = 0; suit <= 3; suit++ ) {
             for ( int value = 1; value <= 13; value++ ) {
-                deck[cardCt] = new Card(value,suit);
+                deck[cardCt] = new PlayingCard(value,suit);
                 cardCt++;
             }
         }
         if (includeJokers) {
-            deck[52] = new Card(1,Card.JOKER);
-            deck[53] = new Card(2,Card.JOKER);
+            deck[52] = new PlayingCard(1,PlayingCard.JOKER);
+            deck[53] = new PlayingCard(2,PlayingCard.JOKER);
         }
         cardsUsed = 0;
     }
@@ -64,7 +64,7 @@ public class Deck {
     public void shuffle() {
         for ( int i = deck.length-1; i > 0; i-- ) {
             int rand = (int)(Math.random()*(i+1));
-            Card temp = deck[i];
+            PlayingCard temp = deck[i];
             deck[i] = deck[rand];
             deck[rand] = temp;
         }
@@ -91,7 +91,7 @@ public class Deck {
      * @return the card which is removed from the deck.
      * @throws IllegalStateException if there are no cards left in the deck
      */
-    public Card dealCard() {
+    public PlayingCard dealCard() {
         if (cardsUsed == deck.length)
             throw new IllegalStateException("No cards are left in the deck.");
         cardsUsed++;

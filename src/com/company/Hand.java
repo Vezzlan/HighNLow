@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class Hand {
 
-    private ArrayList<Card> hand;   // The cards in the hand.
+    private ArrayList<PlayingCard> hand;   // The cards in the hand.
 
     /**
      * Create a hand that is initially empty.
      */
     public Hand() {
-        hand = new ArrayList<Card>();
+        hand = new ArrayList<PlayingCard>();
     }
 
     /**
@@ -31,7 +31,7 @@ public class Hand {
      * @param c the non-null card to be added.
      * @throws NullPointerException if the parameter c is null.
      */
-    public void addCard(Card c) {
+    public void addCard(PlayingCard c) {
         if (c == null)
             throw new NullPointerException("Can't add a null card to a hand.");
         hand.add(c);
@@ -42,7 +42,7 @@ public class Hand {
      * @param c the card to be removed.  If c is null or if the card is not in
      * the hand, then nothing is done.
      */
-    public void removeCard(Card c) {
+    public void removeCard(PlayingCard c) {
         hand.remove(c);
     }
 
@@ -74,7 +74,7 @@ public class Hand {
      * @param position the position of the card that is to be returned
      * @throws IllegalArgumentException if position does not exist in the hand
      */
-    public Card getCard(int position) {
+    public PlayingCard getCard(int position) {
         if (position < 0 || position >= hand.size())
             throw new IllegalArgumentException("Position does not exist in hand: "
                     + position);
@@ -87,12 +87,12 @@ public class Hand {
      * Note that aces are considered to have the lowest value, 1.
      */
     public void sortBySuit() {
-        ArrayList<Card> newHand = new ArrayList<Card>();
+        ArrayList<PlayingCard> newHand = new ArrayList<PlayingCard>();
         while (hand.size() > 0) {
             int pos = 0;  // Position of minimal card.
-            Card c = hand.get(0);  // Minimal card.
+            PlayingCard c = hand.get(0);  // Minimal card.
             for (int i = 1; i < hand.size(); i++) {
-                Card c1 = hand.get(i);
+                PlayingCard c1 = hand.get(i);
                 if ( c1.getSuit() < c.getSuit() ||
                         (c1.getSuit() == c.getSuit() && c1.getValue() < c.getValue()) ) {
                     pos = i;
@@ -111,12 +111,12 @@ public class Hand {
      * Note that aces are considered to have the lowest value, 1.
      */
     public void sortByValue() {
-        ArrayList<Card> newHand = new ArrayList<Card>();
+        ArrayList<PlayingCard> newHand = new ArrayList<PlayingCard>();
         while (hand.size() > 0) {
             int pos = 0;  // Position of minimal card.
-            Card c = hand.get(0);  // Minimal card.
+            PlayingCard c = hand.get(0);  // Minimal card.
             for (int i = 1; i < hand.size(); i++) {
-                Card c1 = hand.get(i);
+                PlayingCard c1 = hand.get(i);
                 if ( c1.getValue() < c.getValue() ||
                         (c1.getValue() == c.getValue() && c1.getSuit() < c.getSuit()) ) {
                     pos = i;
