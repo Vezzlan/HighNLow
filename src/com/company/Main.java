@@ -19,7 +19,7 @@ public class Main {
             scoreThisGame = play();   // Play the game and get the score.
             sumOfScores += scoreThisGame;
             gamesPlayed++;
-            System.out.println("Play again? (Y or N)");
+            System.out.print("Play again? (Y or N)");
             playAgain = TextIO.getlnBoolean();
         } while (playAgain);
 
@@ -63,20 +63,15 @@ public class Main {
         System.out.println("Next up, a random card is the " + currentCard);
 
         while (true) {
-            System.out.println("Will the next card be higher (H) or lower (L)?  ");
+            System.out.print("Will the next card be higher (H) or lower (L)?  ");
             do {
                 guess = TextIO.getlnChar();
                 guess = Character.toUpperCase(guess);
                 if (guess != 'H' && guess != 'L')
-                    System.out.println("Please respond with H or L:  ");
+                    System.out.print("Please respond with H or L:  ");
             } while (guess != 'H' && guess != 'L');
 
-            /* Get the next card and show it to the user. */
-
             nextCard = deck.dealCard();
-            //System.out.println("The next card is " + nextCard);
-
-            /* Check the user's prediction. */
 
             if (nextCard.getValue() == currentCard.getValue()) {
                 System.out.println("The value is the same as the previous card.");
@@ -98,29 +93,36 @@ public class Main {
                     System.out.println("Your prediction was incorrect.");
                     break;  // End the game.
                 }
-
-                //Nytt projekt ------------------------------------------------------------
-
-                System.out.println();
-                Scanner key = new Scanner(System.in);
-                String keyen;
-
-                String chars = "abc";
-                Random rnd = new Random();
-                char c = chars.charAt(rnd.nextInt(chars.length()));
-
-                String str = Character.toString(c);
-                while (true)
-                    do {
-                        System.out.println("Final moment! Lets try to guess the value! (H)earts, (D)iamonds, (C)lubs or (S)pades?");
-                        keyen = key.next().trim();
-                        if (keyen.toUpperCase().equals(str.toUpperCase()))
-                            System.out.println("Correct!");
-                        else
-                            System.out.println("Wrong! Try again!");
-                        break;
-                    } while (!keyen.toUpperCase().equals(str.toUpperCase()));
             }
+
+            //Nytt projekt ------------------------------------------------------------
+
+            System.out.println();
+            System.out.println("Final stage! Lets try to guess the value of the card!");
+            Scanner key = new Scanner(System.in);
+            String keyen;
+
+            String chars = "hdcs";
+            Random rnd = new Random();
+            char c = chars.charAt(rnd.nextInt(chars.length()));
+
+            String str = Character.toString(c);
+
+                System.out.print("(H)earts, (D)iamonds, (C)lubs or (S)pades?");
+                do {
+                    c = Character.toUpperCase(c);
+                    if (c != 'H' && c != 'C' && c != 'D' && c != 'S')
+                        System.out.print("Please respond with H, L, D or S:  ");
+                } while (c != 'H' && c != 'C' && c != 'D' && c != 'S');
+
+                keyen = key.next().trim();
+                if (keyen.toUpperCase().equals(str.toUpperCase())) {
+                    System.out.println("Correct! You won!");
+                    break;
+                } else {
+                    System.out.println("Wrong!");
+                    break;
+                }
         } // end of while loop
 
         System.out.println();
