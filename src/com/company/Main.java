@@ -95,8 +95,6 @@ public class Main {
                 }
             }
 
-            //Nytt projekt ------------------------------------------------------------
-
             System.out.println();
             System.out.println("Final stage! Lets try to guess the value of the card!");
             Scanner key = new Scanner(System.in);
@@ -116,6 +114,7 @@ public class Main {
                 } while (c != 'H' && c != 'C' && c != 'D' && c != 'S');
 
                 keyen = key.next().trim();
+
                 if (keyen.toUpperCase().equals(str.toUpperCase())) {
                     System.out.println("Correct! You won!");
                     break;
@@ -131,8 +130,8 @@ public class Main {
                 + " correct predictions.");
         System.out.println();
         return correctGuesses;
-    }  // end play()
-} // end class HighLow
+    }  
+}
 
 
 
