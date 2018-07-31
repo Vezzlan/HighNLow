@@ -31,6 +31,7 @@ public class Main {
 
     }  //Slut main
 
+
     private static int play() {
 
         String guessing;
@@ -97,40 +98,45 @@ public class Main {
                     System.out.println("Your prediction was incorrect.");
                     break;  // End the game.
                 }
-            }
 
-            //Nytt projekt ------------------------------------------------------------
 
-            System.out.print("Final moment! Lets try to guess the value! (H)earts, (D)iamonds, (C)lubs or (S)pades?");
+                //Nytt projekt ------------------------------------------------------------
 
-            while (true) {
-                do {
-                    guess = TextIO.getlnChar();
-                    guess = Character.toUpperCase(guess);
-                    if (guess != 'H' && guess != 'D' && guess != 'C' && guess != 'S')
-                        System.out.print("Please respond with H, D, C or S:  ");
-                } while (guess != 'H' && guess != 'D' && guess != 'C' && guess != 'S');
+                System.out.print("Final moment! Lets try to guess the value! (H)earts, (D)iamonds, (C)lubs or (S)pades?");
+
 
                 System.out.println("hej");
                 Scanner key = new Scanner(System.in);
-                String keyen = key.next().trim();
+                String keyen;
 
-                String chars = "hdcs";
+                String chars = "abc";
                 Random rnd = new Random();
-                char ca = chars.charAt(rnd.nextInt(chars.length()));
+                char c = chars.charAt(rnd.nextInt(chars.length()));
 
-                StringBuilder b = new StringBuilder();
-                b.append(ca);
-                String str3 = b.toString();
-
-
-                if (str3.toUpperCase().equals(keyen.toUpperCase()))
-                    System.out.println("You won!");
-                else
-                    System.out.println("Wrong! Try again!");
-                while (!str3.toUpperCase().equals(keyen.toUpperCase())) ;
+                String str = Character.toString(c);
+                while (true)
+                    do {
+                        System.out.println("Guess a b or c");
+                        keyen = key.next().trim();
+                        if (keyen.toUpperCase().equals(str.toUpperCase()))
+                            System.out.println("Correct!");
+                        else
+                            System.out.println("Wrong! Try again!");
+                        break;
+                    } while (!keyen.toUpperCase().equals(str.toUpperCase()));
             }
-        }
-        return answear;
-    }
-}
+        } // end of while loop
+
+        System.out.println();
+        System.out.println("The game is over.");
+        System.out.println("You made " + correctGuesses
+                + " correct predictions.");
+        System.out.println();
+        return correctGuesses;
+    }  // end play()
+} // end class HighLow
+
+
+
+
+
