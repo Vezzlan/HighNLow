@@ -71,16 +71,11 @@ public class Main {
                     System.out.print("Please respond with H or L:  ");
             } while (guess != 'H' && guess != 'L');
 
-            /* Get the next card and show it to the user. */
-
             nextCard = deck.dealCard();
-            //System.out.println("The next card is " + nextCard);
-
-            /* Check the user's prediction. */
 
             if (nextCard.getValue() == currentCard.getValue()) {
                 System.out.println("The value is the same as the previous card.");
-                System.out.println("You lose on ties.  Sorry!");
+                System.out.println("You lose on ties. Sorry!");
                 break;  // End the game.
             } else if (nextCard.getValue() > currentCard.getValue()) {
                 if (guess == 'H') {
@@ -104,19 +99,16 @@ public class Main {
 
                 System.out.print("Final moment! Lets try to guess the value! (H)earts, (D)iamonds, (C)lubs or (S)pades?");
 
-
-                System.out.println("hej");
                 Scanner key = new Scanner(System.in);
                 String keyen;
 
-                String chars = "abc";
+                String chars = "hdcs";
                 Random rnd = new Random();
                 char c = chars.charAt(rnd.nextInt(chars.length()));
 
                 String str = Character.toString(c);
                 while (true)
                     do {
-                        System.out.println("Guess a b or c");
                         keyen = key.next().trim();
                         if (keyen.toUpperCase().equals(str.toUpperCase()))
                             System.out.println("Correct!");
