@@ -29,6 +29,14 @@ public class Play {
         int correctGuesses;
         correctGuesses = 1;
 
+        Scanner key1 = new Scanner(System.in);
+        String keyen1;
+
+        String chars1 = "hl";
+        Random rnd1 = new Random();
+        char c1 = chars1.charAt(rnd1.nextInt(chars1.length()));
+        String str1 = Character.toString(c1);
+
         char guess2;
 
         deck.shuffle();
@@ -38,20 +46,20 @@ public class Play {
         while (true) {
             System.out.print("Will the next card be higher (H) or lower (L)?  ");
             do {
-                guess2 = TextIO.getlnChar();
-                guess2 = Character.toUpperCase(guess2);
+                guess2 = Character.toUpperCase(c1);
                 if (guess2 != 'H' && guess2 != 'L')
                     System.out.print("Please respond with H or L:  ");
             } while (guess2 != 'H' && guess2 != 'L');
 
             nextCard = deck.dealCard();
+            keyen1 = key1.next().trim();
 
             if (nextCard.getValue() == currentCard.getValue()) {
                 System.out.println("The value is the same as the previous card.");
                 System.out.println("You lose on ties.  Sorry!");
                 break;  // End the game.
             } else if (nextCard.getValue() > currentCard.getValue()) {
-                if (guess2 == 'H') {
+                if (keyen1.toUpperCase().equals(str1.toUpperCase())){
                     System.out.println("Your prediction was correct.");
                     correctGuesses++;
                 } else {
@@ -59,7 +67,7 @@ public class Play {
                     break;  // End the game.
                 }
             } else {  // nextCard is lower
-                if (guess2 == 'L') {
+                if (keyen1.toUpperCase().equals(str1.toUpperCase())) {
                     System.out.println("Your prediction was correct.");
                     correctGuesses++;
                 } else {
@@ -71,7 +79,7 @@ public class Play {
             System.out.println();
             System.out.println("Final stage! Lets try to guess the value of the card!");
             Scanner key = new Scanner(System.in);
-            String keyen;
+            String keyen2;
 
             String chars = "hdcs";
             Random rnd = new Random();
@@ -87,9 +95,9 @@ public class Play {
                     System.out.print("Please respond with H, L, D or S:  ");
             } while (guess3 != 'H' && guess3 != 'C' && guess3 != 'D' && guess3 != 'S');
 
-            keyen = key.next().trim();
+            keyen2 = key.next().trim();
 
-            if (keyen.toUpperCase().equals(str.toUpperCase())) {
+            if (keyen2.toUpperCase().equals(str.toUpperCase())) {
                 System.out.println("Correct! You won!");
                 correctGuesses++;
                 break;
@@ -106,5 +114,3 @@ public class Play {
         return correctGuesses;
     }
 }
-
-

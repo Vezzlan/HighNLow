@@ -90,4 +90,3 @@ public class PlayingCard {
             return getValueAsString() + " of " + getSuitAsString();
     }
 }
-
