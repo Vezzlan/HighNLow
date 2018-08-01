@@ -97,7 +97,7 @@ public class Play {
                 System.out.println("Wrong!");
                 break;
             }
-        } // end of while loop
+        }
 
         System.out.println();
         System.out.println("The game is over.");
@@ -106,4 +106,5 @@ public class Play {
         return correctGuesses;
     }
 }
+
 

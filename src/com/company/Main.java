@@ -6,34 +6,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("This is the simple drinking game HighLow");
-        System.out.println("Press 1 to play.");
-        System.out.println("Press 2 for rules.");
-        System.out.println("Press 3 to end the game.");
-        System.out.println("Afterwards you will see the stats.");
-
-
-        int gamesPlayed = 0;
-        int sumOfScores = 0;
-        double averageScore;
-        boolean playAgain;
+        Scanner alt = new Scanner(System.in);
+        int choice;
 
         do {
-            int scoreThisGame;        // Score for one game.
-            scoreThisGame = Play.play();   // Play the game and get the score.
-            sumOfScores += scoreThisGame;
-            gamesPlayed++;
-            System.out.print("Play again? (Y or N)");
-            playAgain = TextIO.getlnBoolean();
-        } while (playAgain);
-
-        averageScore = ((double) sumOfScores) / gamesPlayed;
-
-        System.out.println();
-        System.out.println("You played " + gamesPlayed + " games.");
-        System.out.printf("Your average score was %1.3f.\n", averageScore);
-
-    }  //Slut main
+            System.out.println("Menu - Drinking game High Low");
+            System.out.println("Press 1 to play.");
+            System.out.println("Press 2 for rules.");
+            System.out.println("Press 3 to end the game.");
+            System.out.println("Stats are under construction.");
+            choice = alt.nextInt();
+            switch (choice)
+            {
+                case 1:
+                    Play.play();
+                    break;
+                case 2:
+                    Rules.Rules();
+                    break;
+                case 3:
+                    System.out.println("See yaa!");
+                    break;
+                default:
+                    System.out.println("Choice must be a value between 1 and 3.");
+            }
+        } while (choice != 3);
+    }
 }
 
 
