@@ -6,21 +6,16 @@ public class PlayingCard {
     public final static int HEARTS = 1;
     public final static int DIAMONDS = 2;
     public final static int CLUBS = 3;
-    public final static int JOKER = 4;
-
-    public final static int ACE = 1;
-    public final static int JACK = 11;
-    public final static int QUEEN = 12;
-    public final static int KING = 13;
 
     private final int suit;
     private final int value;
 
+    private boolean hidden; // Not used right now
+
     public PlayingCard(int theValue, int theSuit) {
-        if (theSuit != SPADES && theSuit != HEARTS && theSuit != DIAMONDS &&
-                theSuit != CLUBS && theSuit != JOKER)
+        if (theSuit != SPADES && theSuit != HEARTS && theSuit != DIAMONDS && theSuit != CLUBS)
             throw new IllegalArgumentException("Illegal playing card suit");
-        if (theSuit != JOKER && (theValue < 1 || theValue > 13))
+        if (theValue < 1 || theValue > 13)
             throw new IllegalArgumentException("Illegal playing card value");
         value = theValue;
         suit = theSuit;
@@ -41,14 +36,11 @@ public class PlayingCard {
             case CLUBS:
                 return "Clubs";
             default:
-                return "Joker";
+                return "No card";
         }
     }
 
     public String getValueAsString() {
-        if (suit == JOKER)
-            return "" + value;
-        else {
             switch (value) {
                 case 1:
                     return "Ace";
@@ -78,15 +70,8 @@ public class PlayingCard {
                     return "King";
             }
         }
-    }
 
     public String toString() {
-        if (suit == JOKER) {
-            if (value == 1)
-                return "Joker";
-            else
-                return "Joker #" + value;
-        } else
             return getValueAsString() + " of " + getSuitAsString();
     }
 }

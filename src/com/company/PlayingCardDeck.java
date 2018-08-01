@@ -4,14 +4,8 @@ public class PlayingCardDeck {
     private PlayingCard[] deck;
     private int cardsUsed;
 
-    public PlayingCardDeck() {
-        this(false);
-    }
 
-    public PlayingCardDeck(boolean includeJokers) {
-        if (includeJokers)
-            deck = new PlayingCard[54];
-        else
+    public PlayingCardDeck() {
             deck = new PlayingCard[52];
         int cardCt = 0; // How many cards have been created so far.
         for (int suit = 0; suit <= 3; suit++) {
@@ -19,10 +13,6 @@ public class PlayingCardDeck {
                 deck[cardCt] = new PlayingCard(value, suit);
                 cardCt++;
             }
-        }
-        if (includeJokers) {
-            deck[52] = new PlayingCard(1, PlayingCard.JOKER);
-            deck[53] = new PlayingCard(2, PlayingCard.JOKER);
         }
         cardsUsed = 0;
     }
