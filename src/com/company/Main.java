@@ -31,15 +31,14 @@ public class Main {
 
     }  //Slut main
 
-
     private static int play() {
 
         String guess1;
         Scanner keyboard = new Scanner(System.in);
 
         Random r = new Random();
-        char answear = r.nextBoolean() ? 'R' : 'B';
-        String s = String.valueOf(answear);
+        char answer = r.nextBoolean() ? 'R' : 'B';
+        String s = String.valueOf(answer);
 
         do {
             System.out.println("Guess the color of the card - (R)ed or (B)lack?");
@@ -55,10 +54,11 @@ public class Main {
         PlayingCard nextCard;
 
         int correctGuesses;
+        correctGuesses = 1;
+
         char guess2;
 
         deck.shuffle();
-        correctGuesses = 0;
         currentCard = deck.dealCard();
         System.out.println("Next up, a random card is the " + currentCard);
 
@@ -107,34 +107,29 @@ public class Main {
 
             char guess3;
 
-                System.out.print("(H)earts, (D)iamonds, (C)lubs or (S)pades?");
-                do {
-                    guess3 = Character.toUpperCase(c);
-                    if (guess3 != 'H' && guess3 != 'C' && guess3 != 'D' && guess3 != 'S')
-                        System.out.print("Please respond with H, L, D or S:  ");
-                } while (guess3 != 'H' && guess3 != 'C' && guess3 != 'D' && guess3 != 'S');
+            System.out.print("(H)earts, (D)iamonds, (C)lubs or (S)pades?");
+            do {
+                guess3 = Character.toUpperCase(c);
+                if (guess3 != 'H' && guess3 != 'C' && guess3 != 'D' && guess3 != 'S')
+                    System.out.print("Please respond with H, L, D or S:  ");
+            } while (guess3 != 'H' && guess3 != 'C' && guess3 != 'D' && guess3 != 'S');
 
-                keyen = key.next().trim();
+            keyen = key.next().trim();
 
-                if (keyen.toUpperCase().equals(str.toUpperCase())) {
-                    System.out.println("Correct! You won!");
-                    break;
-                } else {
-                    System.out.println("Wrong!");
-                    break;
-                }
+            if (keyen.toUpperCase().equals(str.toUpperCase())) {
+                System.out.println("Correct! You won!");
+                correctGuesses++;
+                break;
+            } else {
+                System.out.println("Wrong!");
+                break;
+            }
         } // end of while loop
 
         System.out.println();
         System.out.println("The game is over.");
-        System.out.println("You made " + correctGuesses
-                + " correct predictions.");
+        System.out.println("You made : " + correctGuesses + " correct predictions.");
         System.out.println();
         return correctGuesses;
     }
 }
-
-
-
-
-

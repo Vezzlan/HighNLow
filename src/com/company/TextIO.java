@@ -1,7 +1,5 @@
 package com.company;
 
-
-
 import java.io.*;
 import java.util.IllegalFormatException;
 import java.util.regex.Matcher;
@@ -11,53 +9,17 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- * TextIO provides a set of static methods for reading and writing text.  By default, it reads
- * from standard input and writes to standard output, but it is possible to redirect the input
- * and output to files or to other input and output streams.  When the standard input and output
- * streams are being used, the input methods will not produce an error; instead, the user is
- * repeatedly prompted for input until a legal input is entered.  (If standard input has been
- * changed externally, as by file redirection on the command line, this is not a reasonable
- * behavior; to handle this case, TextIO will give up after 10 consecutive illegal inputs and
- * will throw an IllegalArgumentException.)  For the most part, any other
- * error will be translated into an IllegalArguementException.
- * <p>For writing to standard output, the output methods in this class pretty much
- * duplicate the functionality of System.out, and System.out can be used interchangeably with them.
- * <p>This class does not use optimal Java programming practices.  It is designed specifically to be easily
- * usable even by a beginning programmer who has not yet learned about objects and exceptions.  Therefore,
- * everything is in a single source file that compiles into a single class file, all the methods are
- * static methods, and none of the methods throw exceptions that would require try...catch statements.
- * Also for this reason, all exceptions are converted into IllegalArgumentExceptions, even when this
- * exception type doesn't really make sense.
- * <p>This class requires Java 5.0 or higher. (A previous version of TextIO required only Java 1.1;
- * this version should work with any source code that used the previous version, but it has some new
- * features, including the type of formatted output that was introduced in Java 5 and the ability to
- * use files and streams.)
- */
+
+
+
+ Lånad kod
+
+
+
+ **/
 public class TextIO {
-
-    /* Modified November 2007 to empty the TextIO input buffer when switching from one
-     * input source to another. This fixes a bug that allows input from the previous input
-     * source to be read after the new source has been selected.
-     */
-
-    /**
-     * The value returned by the peek() method when the input is at end-of-file.
-     * (The value of this constant is (char)0xFFFF.)
-     */
     public final static char EOF = (char)0xFFFF;
-
-    /**
-     * The value returned by the peek() method when the input is at end-of-line.
-     * The value of this constant is the character '\n'.
-     */
     public final static char EOLN = '\n';          // The value returned by peek() when at end-of-line.
-
-
-    /**
-     * After this method is called, input will be read from standard input (as it
-     * is in the default state).  If a file or stream was previously the input source, that file
-     * or stream is closed.
-     */
     public static void readStandardInput() {
         if (readingStandardInput)
             return;
@@ -73,12 +35,6 @@ public class TextIO {
         inputErrorCount = 0;
     }
 
-    /**
-     * After this method is called, input will be read from inputStream, provided it
-     * is non-null.  If inputStream is null, then this method has the same effect
-     * as calling readStandardInput(); that is, future input will come from the
-     * standard input stream.
-     */
     public static void readStream(InputStream inputStream) {
         if (inputStream == null)
             readStandardInput();

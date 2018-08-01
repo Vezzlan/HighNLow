@@ -5,7 +5,7 @@ public class PlayingCardDeck {
     private int cardsUsed;
 
     public PlayingCardDeck() {
-        this(false);  // Just call the other constructor in this class.
+        this(false);
     }
 
     public PlayingCardDeck(boolean includeJokers) {
@@ -37,20 +37,11 @@ public class PlayingCardDeck {
         cardsUsed = 0;
     }
 
-    public int cardsLeft() {
-        return deck.length - cardsUsed;
-    }
-
-
     public PlayingCard dealCard() {
         if (cardsUsed == deck.length)
             throw new IllegalStateException("No cards are left in the deck.");
         cardsUsed++;
         return deck[cardsUsed - 1];
         // Controls how many cards have been used...
-    }
-
-    public boolean hasJokers() {
-        return (deck.length == 54);
     }
 }
