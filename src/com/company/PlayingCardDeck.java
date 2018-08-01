@@ -39,7 +39,7 @@ public class PlayingCardDeck {
 
     public PlayingCard dealCard() {
         if (cardsUsed == deck.length)
-            throw new IllegalStateException("No cards are left in the deck.");
+            throw new IllegalStateException("No cards are left in the deck...");
         cardsUsed++;
         return deck[cardsUsed - 1];
         // Controls how many cards have been used...
