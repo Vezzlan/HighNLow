@@ -32,5 +32,3 @@ public class Main {
         } while (choice != 3);
     }
 }
-
-

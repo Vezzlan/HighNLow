@@ -19,8 +19,10 @@ public class Play {
             if (guess1.toUpperCase().equals(s.toUpperCase()))
                 System.out.println("Correct!");
             else
-                System.out.println("Wrong! Try again!");
+                System.out.println("Wrong! Take a zip and try again!");
         } while (!guess1.toUpperCase().equals(s.toUpperCase()));
+
+        //Start of second level. The game will now be able to quit.
 
         PlayingCardDeck deck = new PlayingCardDeck();
         PlayingCard currentCard;
@@ -76,6 +78,8 @@ public class Play {
                 }
             }
 
+            //Start of third level.
+
             System.out.println();
             System.out.println("Final stage! Lets try to guess the value of the card!");
             Scanner key = new Scanner(System.in);
@@ -98,11 +102,11 @@ public class Play {
             keyen2 = key.next().trim();
 
             if (keyen2.toUpperCase().equals(str.toUpperCase())) {
-                System.out.println("Correct! You won!");
+                System.out.println("Congrats! No more drinking!");
                 correctGuesses++;
                 break;
             } else {
-                System.out.println("Wrong!");
+                System.out.println("Wrong! Take another zip!");
                 break;
             }
         }
