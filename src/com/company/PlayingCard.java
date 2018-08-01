@@ -26,10 +26,6 @@ public class PlayingCard {
         suit = theSuit;
     }
 
-    public int getSuit() {
-        return suit;
-    }
-
     public int getValue() {
         return value;
     }
