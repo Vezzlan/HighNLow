@@ -1,25 +1,23 @@
 package com.company;
 
-import javax.swing.*;
 import java.io.*;
-import java.util.Scanner;
 
 public class Stats {
-
     public static void showStats() {
-        System.out.println("Persons who made it!");
+        System.out.println("All who made it!");
 
         try {
-            BufferedReader inputStream = new BufferedReader((new FileReader("stats.txt")));
+            BufferedReader input = new BufferedReader((new FileReader("stats.txt")));
             int rowNr = 1;
             while (true) {
-                String str = inputStream.readLine();
-                if (str == null) {
+                String s = input.readLine();
+                if (s == null) {
                     break;
                 }
-                System.out.println(rowNr + ": " + str);
+                System.out.println(rowNr + ": " + s);
                 rowNr++;
             }
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }

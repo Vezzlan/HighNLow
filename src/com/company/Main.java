@@ -24,10 +24,11 @@ public class Main {
                     Rules.rules();
                     break;
                 case 3:
-                    System.out.println("See yaa!");
+                    Stats.showStats();
                     break;
                 case 4:
-                    Stats.showStats();
+                    System.out.println("See yaa!");
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("Choice must be a value between 1 and 4.");

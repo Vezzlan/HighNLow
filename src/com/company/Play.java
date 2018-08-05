@@ -61,7 +61,7 @@ public class Play {
                 System.out.println("You lose on ties.  Sorry!");
                 break;  // End the game.
             } else if (nextCard.getValue() > currentCard.getValue()) {
-                if (keyen1.toUpperCase().equals(str1.toUpperCase())){
+                if (keyen1.toUpperCase().equals(str1.toUpperCase())) {
                     System.out.println("Your prediction was correct.");
                     correctGuesses++;
                 } else {
@@ -85,7 +85,7 @@ public class Play {
             Scanner key = new Scanner(System.in);
             String keyen2;
 
-            String chars = "h";
+            String chars = "hdcs";
             Random rnd = new Random();
             char c = chars.charAt(rnd.nextInt(chars.length()));
             String str = Character.toString(c);
@@ -111,7 +111,6 @@ public class Play {
                 break;
             }
         }
-
         System.out.println();
         System.out.println("The game is over.");
         System.out.println("You made : " + correctGuesses + " correct predictions.");
