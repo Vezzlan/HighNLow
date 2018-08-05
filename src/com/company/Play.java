@@ -85,7 +85,7 @@ public class Play {
             Scanner key = new Scanner(System.in);
             String keyen2;
 
-            String chars = "hdcs";
+            String chars = "h";
             Random rnd = new Random();
             char c = chars.charAt(rnd.nextInt(chars.length()));
             String str = Character.toString(c);
@@ -104,6 +104,7 @@ public class Play {
             if (keyen2.toUpperCase().equals(str.toUpperCase())) {
                 System.out.println("Congrats! No more drinking!");
                 correctGuesses++;
+                Stats.writeName();
                 break;
             } else {
                 System.out.println("Wrong! Take another zip!");

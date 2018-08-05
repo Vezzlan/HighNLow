@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Press 1 to play.");
             System.out.println("Press 2 for rules.");
             System.out.println("Press 3 to end the game.");
-            System.out.println("Stats are under construction.");
+            System.out.println("Press 4 to see stats.");
             choice = alt.nextInt();
             switch (choice)
             {
@@ -21,14 +21,17 @@ public class Main {
                     Play.play();
                     break;
                 case 2:
-                    Rules.Rules();
+                    Rules.rules();
                     break;
                 case 3:
                     System.out.println("See yaa!");
                     break;
+                case 4:
+                    Stats.showStats();
+                    break;
                 default:
-                    System.out.println("Choice must be a value between 1 and 3.");
+                    System.out.println("Choice must be a value between 1 and 4.");
             }
-        } while (choice != 3);
+        } while (choice != 4);
     }
 }
